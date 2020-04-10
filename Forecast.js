@@ -1,6 +1,6 @@
 const request = require("request");
 
-const Forecast = function(lat, lon, callback)
+const Forecast = function(lon, lat, callback)
 {
     const url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=73917db00ca5447aa7b436a55f8d750f`;
 
@@ -15,7 +15,7 @@ const Forecast = function(lat, lon, callback)
         }
         else callback(undefined, {
             Location: response.body.data[0].city_name,
-            Lattitude: response.body.data[0].lat,
+            Latitude: response.body.data[0].lat,
             Temperature: response.body.data[0].temp
         })
     })
