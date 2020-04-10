@@ -9,13 +9,13 @@ if(!arg)
 }
 else
 {
-    geoCode(arg, (error, data) =>{
+    geoCode(arg, (error, {longitude, latitude, location }) =>{
         if(error) return console.log(error);
     
-        forecast(data.longitude, data.latitude, (error, forecastData) => {
+        forecast(longitude, latitude, (error, forecastData) => {
             if(error) return console.log(error);
     
-            console.log("Location: ", data);
+            console.log("Location: ", location);
             console.log("Data: ", forecastData);
         })
     })
