@@ -7,21 +7,28 @@ app.get("", (req, res) => {
 })
 
 app.get("/help", (req, res) => {
-    res.send("Welcome to the Help Page");
+    res.send([{
+        name: "Chinedu",
+        age: 27,
+        Occupation: "Software Engineer"
+    },{
+        name: "Andrew",
+        age: 24,
+        occuapation: "Tutor"
+    }]);
 })
 
 app.get("/about", (req, res) => {
-    res.send("Welcome to the About Page");
+    res.send("<h1>Wanna know more about me?</h1>");
 })
 
 app.get("/weather", (req, res) => {
-    res.send("Here's the weather forecast for Today");
+    res.send({
+        location: "Enugu",
+        Temperature: "It is currently 29.58 degrees"
+    });
 })
 
 app.listen(3000, () => {
     console.log("The server is up on port 3000");
-})
-
-app.get("/Easter", (req, res) => {
-    res.send("Happy Easter. Christ died for You.");
 })
