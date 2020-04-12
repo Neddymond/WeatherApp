@@ -4,11 +4,15 @@ const express = require("express");
  /** Initiating express server */
 const app = express();
 
+/** The directory to serve static files from */
+const publicDirectoryPath = path.join(__dirname, "../Public");
+const customizedViewPath = path.join(__dirname, "../Templates");
+
 /** Setting up extension for handlebar module */
 app.set("view engine", "hbs");
 
-/** The directory to serve static files from */
-const publicDirectoryPath = path.join(__dirname, "../Public");
+/** Customize our "views" location */
+app.set("views", customizedViewPath);
 
 /** Serve up static files from the specified directory */
 app.use(express.static(publicDirectoryPath));
