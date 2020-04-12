@@ -47,13 +47,29 @@ app.get("/Help", (req, res) => {
 //     res.send("Hello express");
 // })
 
-
 app.get("/weather", (req, res) => {
     res.send({
         title: "Weather",
         location: "Enugu",
         Temperature: "It is currently 29.58 degrees"
     });
+})
+
+app.get('/help/*', (req, res) => {
+    res.render('ErrorHandler', {
+        title: "ErrorPage",
+        name: "chinedu Ikechi",
+        errorMessage: 'Help article not found'
+    })
+})
+
+/** Set up message for unavailable files */
+app.get('*', (req, res) => {
+    res.render('ErrorHandler', {
+        title: "ErrorPage",
+        name: "chinedu Ikechi",
+        errorMessage: "Page not found"
+    })
 })
 
 app.listen(3000, () => {
