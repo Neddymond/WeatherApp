@@ -1,18 +1,21 @@
 const path = require("path");
 const express = require("express");
+const hbs = require("hbs");
 
  /** Initiating express server */
 const app = express();
 
-/** The directory to serve static files from */
+/** Define paths for Express config */
 const publicDirectoryPath = path.join(__dirname, "../Public");
-const customizedViewPath = path.join(__dirname, "../Templates");
+const customizedViewPath = path.join(__dirname, "../Templates/views");
+const partialsPath = path.join(__dirname, "../Templates/partials");
 
 /** Setting up extension for handlebar module */
 app.set("view engine", "hbs");
 
-/** Customize our "views" location */
+/** Customize our "views" and partials location */
 app.set("views", customizedViewPath);
+hbs.registerPartials(partialsPath);
 
 /** Serve up static files from the specified directory */
 app.use(express.static(publicDirectoryPath));
@@ -28,6 +31,7 @@ app.get("", (req, res) => {
 app.get("/About", (req, res) => {
     res.render("About", {
         title: "About",
+        name: "Chinedu Ikechi",
         content: "Let me tell you somn you don't know about me."
     });
 })
@@ -35,6 +39,7 @@ app.get("/About", (req, res) => {
 app.get("/Help", (req, res) => {
     res.render("Help", {
         title: "Help",
+        name: "Chinedu Ikechi",
         message: "Come get some help."
     })
 })
@@ -45,6 +50,7 @@ app.get("/Help", (req, res) => {
 
 app.get("/weather", (req, res) => {
     res.send({
+        title: "Weather",
         location: "Enugu",
         Temperature: "It is currently 29.58 degrees"
     });
