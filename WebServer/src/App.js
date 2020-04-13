@@ -47,12 +47,19 @@ app.get("/Help", (req, res) => {
 //     res.send("Hello express");
 // })
 
+
+/** Query Strings */
 app.get("/weather", (req, res) => {
+    if(!req.query.address){
+        return res.send({
+            error: "Please provide an address"
+        })
+    }
+
     res.send({
         title: "Weather",
-        location: "Enugu",
-        Temperature: "It is currently 29.58 degrees"
-    });
+        address: req.query.address
+    })
 })
 
 app.get('/help/*', (req, res) => {
