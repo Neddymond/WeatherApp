@@ -6,7 +6,7 @@ const hbs = require("hbs");
 const app = express();
 
 /** Define paths for Express config */
-const publicDirectoryPath = path.join(__dirname, "../Public");
+const publicDirectoryPath = path.join(__dirname, "../public");
 const customizedViewPath = path.join(__dirname, "../Templates/views");
 const partialsPath = path.join(__dirname, "../Templates/partials");
 
@@ -63,7 +63,7 @@ app.get('/help/*', (req, res) => {
     })
 })
 
-/** Set up message for unavailable files */
+/** Set up 404 message for unavailable files */
 app.get('*', (req, res) => {
     res.render('ErrorHandler', {
         title: "ErrorPage",
