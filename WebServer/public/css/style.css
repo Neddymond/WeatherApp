@@ -4,6 +4,14 @@ body{
     background-color: rgb(24, 21, 21);
     max-width: 500px;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    min-height: 85vh;
+    flex-grow: 1;
 }
 
 ul{
@@ -18,7 +26,7 @@ li{
     margin-bottom: 10px;
 }
 
-a{
+.navs{
     text-decoration: none;
     color: whitesmoke;
 }
