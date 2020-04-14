@@ -25,7 +25,8 @@ app.use(express.static(publicDirectoryPath));
 /** Render dynamic file */
 app.get("", (req, res) => {
     res.render("index", {
-        title: "Dynamic Template",
+        title: "Weather",
+        content: "Get Updated Weather Information.",
         name: "Chinedu Ikechi"
     })
 })
@@ -49,7 +50,6 @@ app.get("/Help", (req, res) => {
 //     res.send("Hello express");
 // })
 
-
 /** Query Strings */
 app.get("/weather", (req, res) => {
     if(!req.query.address){
@@ -58,7 +58,7 @@ app.get("/weather", (req, res) => {
         })
     }
 
-    geoCode(req.query.address, (error, {longitude, latitude, location }) =>{
+    geoCode(req.query.address, (error, {longitude, latitude, location } = {}) =>{
         if(error){
             return res.send({error})
         }
