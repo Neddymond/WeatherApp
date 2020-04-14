@@ -10,7 +10,12 @@ body{
 }
 
 .container{
-    min-height: 85vh;
+    min-height: 50vh;
+    flex-grow: 1;
+}
+
+.search-area{
+    min-height: 35vh;
     flex-grow: 1;
 }
 
