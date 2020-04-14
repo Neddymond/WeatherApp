@@ -9,13 +9,20 @@ body{
     flex-direction: column;
 }
 
+h1{
+    color: rgb(0, 213, 255);
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
 .container{
-    min-height: 50vh;
+    min-height: 40vh;
     flex-grow: 1;
 }
 
 .search-area{
-    min-height: 35vh;
+    min-height: 45vh;
     flex-grow: 1;
 }
 
@@ -36,20 +43,38 @@ li{
     color: whitesmoke;
 }
 
+#weatherInfo-header{
+    border-bottom: 1px solid white;
+    color: rgb(0, 184, 0);
+}
+
+input{
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding: 15px 30px;
+    outline: none;
+}
+
+input::placeholder{
+    font-family: "Yu Gothic";
+}
+
+button{
+    padding: 10px 20px;
+    background: rgb(255, 38, 0);
+    font-family: "Yu Gothic";
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+    outline: none;
+}
+
 footer{
     color: rgb(214, 210, 210);
     margin-top: 20px;
     border-top: 1px solid white;
     padding: 20px 0;
-}
-
-header{
-
-}
-
-h1
-{
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 50px;
 }
