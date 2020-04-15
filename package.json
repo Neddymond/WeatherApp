@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node WebServer/src/App.js"
   },
+  "engines": {
+    "nodes": "12.16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
