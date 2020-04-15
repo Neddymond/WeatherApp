@@ -20,15 +20,13 @@ weatherForm.addEventListener("submit", (e) => {
     message1.textContent = `please wait while we fetch weather information for ${inputValue}`;
     message2.textContent = "";
     
-    fetch(`http://localhost:3000/weather?address=${inputValue}`).then((res) => {
+    fetch(`/weather?address=${inputValue}`).then((res) => {
         res.json().then((data) => {
             if(data.error) return message1.textContent = 'Please provide another location';
+
             weatherInfoHeader.textContent = `${data.forecastData.Location} Current Weather Information.`;
             message1.textContent = data.location;
             message2.textContent = `It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
-            console.log(data);
         })
     })
-
-    // console.log(inputValue);
 })
