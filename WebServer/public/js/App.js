@@ -4,8 +4,11 @@ console.log("Code no dey lie!");
 const weatherForm = document.querySelector("#searchForm");
 const locationInput = document.querySelector("input");
 const weatherInfoHeader = document.querySelector("#weatherInfo-header");
-const message1 = document.querySelector("#message-1");
-const message2 = document.querySelector("#message-2");
+const locationData = document.querySelector("#message-1");
+const temperature = document.querySelector("#message-2");
+const description = document.querySelector("#message-3");
+const longitude = document.querySelector("#message-4");
+const latitude = document.querySelector("#message-5");
 
 /** fetch weather forecast using the location from the input */
 weatherForm.addEventListener("submit", (e) => {
@@ -17,16 +20,23 @@ weatherForm.addEventListener("submit", (e) => {
     /** Assign data to the html elements only when a location is provided */
     if(!inputValue) return message1.textContent = "Please Provide a Location."
 
-    message1.textContent = `please wait while we fetch weather information for ${inputValue}`;
-    message2.textContent = "";
+    locationData.textContent = `please wait while we fetch weather information for ${inputValue}`;
+    temperature.textContent = "";
+    description.textContent = "";
+    longitude.textContent = "";
+    latitude.textContent = "";
     
     fetch(`/weather?address=${inputValue}`).then((res) => {
         res.json().then((data) => {
             if(data.error) return message1.textContent = 'Please provide another location';
 
-            weatherInfoHeader.textContent = `${data.forecastData.Location} Current Weather Information.`;
-            message1.textContent = data.location;
-            message2.textContent = `It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
+            /** Display weather info to the browser */
+            weatherInfoHeader.textContent = `${data.Location} Current Weather Information.`;
+            locationData.textContent = data.location;
+            temperature.textContent = `It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
+            description.textContent = data.forecastData.Description;
+            longitude.textContent = data.forecastData.Longitude;
+            latitude.textContent = data.forecastData.Latitude;
         })
     })
 })

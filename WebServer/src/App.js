@@ -38,7 +38,7 @@ app.get("/About", (req, res) => {
     res.render("About", {
         title: "About",
         name: "Chinedu Ikechi",
-        content: "Let me tell you somn you don't know about me."
+        content: "We return weather forecast using data from Mapbox.com and Weatherbit.com."
     });
 })
 

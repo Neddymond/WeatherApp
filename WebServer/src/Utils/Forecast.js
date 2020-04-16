@@ -15,8 +15,11 @@ const Forecast = function(lon, lat, callback)
         }
         else callback(undefined, {
             Location: body.data[0].city_name,
-            Lattitude: body.data[0].lat,
-            Temperature: body.data[0].temp
+            Latitude: body.data[0].lat,
+            Longitude: body.data[0].lon,
+            Temperature: body.data[0].temp,
+            Description: body.data[0].weather.description,
+
         })
     })
 }
