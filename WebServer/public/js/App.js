@@ -31,12 +31,12 @@ weatherForm.addEventListener("submit", (e) => {
             if(data.error) return message1.textContent = 'Please provide another location';
 
             /** Display weather info to the browser */
-            weatherInfoHeader.textContent = `${data.Location} Current Weather Information.`;
-            locationData.textContent = data.location;
-            temperature.textContent = `It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
-            description.textContent = data.forecastData.Description;
-            longitude.textContent = data.forecastData.Longitude;
-            latitude.textContent = data.forecastData.Latitude;
+            weatherInfoHeader.textContent = `${data.location} Current Weather Information.`;
+            locationData.textContent = `Location: ${data.location}`;
+            temperature.textContent = `Temperature: It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
+            description.textContent = `Description: ${data.forecastData.Description}`;
+            longitude.textContent = `Longitude: ${data.forecastData.Longitude}`;
+            latitude.textContent = `Latitude: ${data.forecastData.Latitude}`;
         })
     })
 })
