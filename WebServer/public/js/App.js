@@ -31,7 +31,7 @@ weatherForm.addEventListener("submit", (e) => {
             if(data.error) return message1.textContent = 'Please provide another location';
 
             /** Display weather info to the browser */
-            weatherInfoHeader.textContent = `${data.location} Current Weather Information.`;
+            weatherInfoHeader.textContent = `${data.location}'s Current Weather Information.`;
             locationData.textContent = `Location: ${data.location}`;
             temperature.textContent = `Temperature: It is currently ${data.forecastData.Temperature} degrees in ${inputValue}.`;
             description.textContent = `Description: ${data.forecastData.Description}`;
